@@ -1,3 +1,7 @@
+# I investigated whether a wage premium exists associated with marriage for individuals with the same number of years of education. 
+# I grouped data by Education and Marital Status (marital status: 1 for married, 0 for single). In the next step, 
+# I Generated a scatter plot with education on the x-axis and lwage (logarithmic wage) on the y-axis.
+# Finally, I Estimated the regression model: lwage = a + a1sfemale + a2mfemale + a3mmale + b1educ + b2exper + b3tenure + u, where "u" represents the error term.
 # -*- coding: utf-8 -*-
 """Regression.ipynb
 
