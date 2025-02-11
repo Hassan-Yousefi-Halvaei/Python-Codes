@@ -31,14 +31,14 @@ plt.show()
 df['lwage'] = np.log(df['wage'])
 print(df[['wage', 'lwage']].head())                                                   # Check the first few rows of the DataFrame
 plt.figure(figsize=(10, 6))                                                           # Set the size of the figure
-# Create scatter plot with regression lines for each group
-sns.lmplot(data=df, x='educ', y='lwage', hue='marrstat_label', markers=['o', 's', 'D', '^'], ci=None, palette='Set1')
-plt.title('Education vs Log Wage by Marital Status')
+                                                                               
+sns.lmplot(data=df, x='educ', y='lwage', hue='marrstat_label', markers=['o', 's', 'D', '^'], ci=None, palette='Set1')    
+plt.title('Education vs Log Wage by Marital Status')                                  # Create scatter plot with regression lines for each group
 plt.xlabel('Years of Education')
 plt.ylabel('Log(Wage)')
 plt.show()
-# Create indicator variables for married men, married women, and single women
-df['mmale'] = np.where((df['female'] == 0) & (df['married'] == 1), 1, 0)
+
+df['mmale'] = np.where((df['female'] == 0) & (df['married'] == 1), 1, 0)              # Create indicator variables for married men, married women, and single women
 df['mfemale'] = np.where((df['female'] == 1) & (df['married'] == 1), 1, 0)
 df['sfemale'] = np.where((df['female'] == 1) & (df['married'] == 0), 1, 0)
 print(df[['mmale', 'mfemale', 'sfemale']].head())                                     # Check if the variables are created correctly
