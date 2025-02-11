@@ -42,6 +42,7 @@ df['mmale'] = np.where((df['female'] == 0) & (df['married'] == 1), 1, 0)
 df['mfemale'] = np.where((df['female'] == 1) & (df['married'] == 1), 1, 0)
 df['sfemale'] = np.where((df['female'] == 1) & (df['married'] == 0), 1, 0)
 print(df[['mmale', 'mfemale', 'sfemale']].head())                                     # Check if the variables are created correctly
+
 import statsmodels.api as sm
 X = df[['sfemale', 'mfemale', 'mmale', 'educ', 'exper', 'tenure']]                    # Define the independent variables (including a constant term for intercept)
 X = sm.add_constant(X)  # Add the intercept term
