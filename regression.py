@@ -12,13 +12,16 @@ Original file is located at
 """
 from google.colab import drive                     # Import drive from Google Colab
 drive.mount('/content/drive')
+
 import pandas as pd
 file_path = '/content/drive/My Drive/Data.csv'     # Path to your file in Google Drive
 df = pd.read_csv(file_path)                        # Read the CSV file using pandas
 print(df.shape)                                    # Display the first few rows of the DataFrame to verify
 df.head()
+
 grouped_df = df.groupby(['educ', 'married']).agg({'wage': 'mean'}).reset_index()     # Group the data by education and marital status
 print(grouped_df)                                                                    # Display the grouped DataFrame
+
 import matplotlib.pyplot as plt                                                      # Plot wage vs education, differentiated by marital status
 sns.lineplot(data=grouped_df, x='educ', y='wage', hue='married', markers=True, style='married')
 plt.title('Wage vs Education, Grouped by Marital Status')
